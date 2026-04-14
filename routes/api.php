@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['apiKey'])->group(function () {
 Route::middleware('auth:sanctum')->group( function () {
     // Get user 
     Route::get('/user', function (Request $request) {
@@ -65,4 +66,8 @@ Route::post('/register', [AuthController::class, 'register']);
 // login
 Route::post('/login', [AuthController::class, 'login']);
 });
+});
+
+
+
 
